@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Описание того, как должен выглядеть безопасный пароль и что делает пароль безопасным">
+  <meta name="keywords" content="о пароле, о генераторе"
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles.css" async>
+  <title>О пароле</title>
+
+<body>
+<div class="navbar">
+  <a href="aboutpass.html" checked tabindex="0" onkeypress="if(event.key === 'Enter' || event.key === ' ') this.click()">О пароле</a>
+  <a href="Terms+Conditions.html" checked tabindex="0" onkeypress="if(event.key === 'Enter' || event.key === ' ') this.click()">Условия соглашения</a>
+  <a href="author's profile.html" checked tabindex="0" onkeypress="if(event.key === 'Enter' || event.key === ' ') this.click()">Об авторе</a>
+  <a href="index.html" checked tabindex="0" onkeypress="if(event.key === 'Enter' || event.key === ' ') this.click()">Генератор паролей</a>
+  <a href="aboutpass RU.html" checked tabindex="0" onkeypress="if(event.key === 'Enter' || event.key === ' ') this.click()">RU версия</a>
+    <img src="russian.svg" loading="lazy" width="50" height="30" alt="флаг русской версии">
+  <a href="aboutpass.html">ENG версия</a>
+    <img src="american.svg" loading="lazy" width="50" height="30" alt="флаг американской версии">
+  <a href="aboutpass LV.html">LV версия</a>
+    <img src="latvian.svg" loading="lazy" width="50" height="30" alt="флаг латвийской версии">
+</div>
+  <div class="container">
+    <i class="icon-moon" onclick="toggleDarkMode()"></i>
+    <form inert>
+    <link rel="inert css" href="inert.css">
+
+    <h1>Что делает пароль безопасным?</h1>
+
+    <img src="icon-lock++.svg" loading="lazy" width="60" height="60" alt="">
+    <h2>Длинный</h2>
+    <p>Чем длиннее пароль, тем он безопаснее. Безопасный пароль должен содержать не менее 10 символов.</p>
+    <img src="icon-lock.svg" loading="lazy" width="60" height="60" alt="">
+
+    <h2>Сложный</h2>
+    <p>Надежные пароли используют комбинацию букв, цифр и символов для создания строки непредсказуемых символов, которые не похожи на слова.</p>
+
+    <img src="login-password.svg" loading="lazy" width="150" height="150" alt="">
+    <h2>Уникальный</h2>
+    <p>Надежный пароль должен быть уникальным для каждой учетной записи, чтобы снизить уязвимость в случае взлома.</p>
+    </div>
+  <script src="darkmode.js" async></script>
+</body>
+</html>

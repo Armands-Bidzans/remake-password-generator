@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Izveidojiet spēcīgu, drošu paroli ar jaudīgu paroļu ģeneratoru. Izvēlieties paroles garumu, izmantojiet speciālos simbolus un ciparus, un kopējiet paroli ar vienu klikšķi.">
+  <meta name="keywords" content="tiešsaistes paroļu ģenerators, paroļu ģenerators">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles.css" async>
+  <title>Paroļu ģenerators</title>
+
+  <style>
+    body { background-color: #faf9f6; margin: 0; padding: 0; }
+    p { margin: 0 0 10px; font-size: 20px; }
+    .dark-mode { background-color: #0e0c0a; color: #faf9f6; }
+    label { display: flex; padding: 10px; }
+    h1, p, h2 { text-align: center; }
+    @media (max-width: 768px) {
+      input[type="text"], button {
+        width: 90%;
+        font-size: 14px;
+      }
+    }
+    input[type="text"] {
+      border-radius: 5px;
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="navbar" role="navigation">
+    <a href="aboutpass.html" checked tabindex="0" onkeypress="if(event.key === 'Enter' || event.key === ' ') this.click()">Par paroli</a>
+    <a href="Terms+Conditions.html" checked tabindex="0" onkeypress="if(event.key === 'Enter' || event.key === ' ') this.click()">Vienošanās noteikumi</a>
+    <a href="author's profile.html" checked tabindex="0" onkeypress="if(event.key === 'Enter' || event.key === ' ') this.click()">Par autoru</a>
+    <a href="index.html" checked tabindex="0" onkeypress="if(event.key === 'Enter' || event.key === ' ') this.click()">Paroļu ģenerators</a>
+    <a href="timer.html" checked tabindex="0" onkeypress="if(event.key === 'Enter' || event.key === ' ') this.click()">Taimeris</a>
+    <a href="indexRu.html" checked tabindex="0" onkeypress="if(event.key === 'Enter' || event.key === ' ') this.click()">RU versija</a>
+    <img src="russian.svg" loading="lazy" width="50" height="30" alt="krievu versijas karogs">
+    <a href="index.html" checked tabindex="0" onkeypress="if(event.key === 'Enter' || event.key === ' ') this.click()">ENG versija</a>
+    <img src="american.svg" loading="lazy" width="50" height="30" alt="amerikāņu versijas karogs">
+    <a href="indexLV.html" checked tabindex="0" onkeypress="if(event.key === 'Enter' || event.key === ' ') this.click()">LV versija</a>
+    <img src="latvian.svg" loading="lazy" width="50" height="30" alt="latviešu versijas karogs">
+  </div>
+
+  <h2>Izveidojiet spēcīgas, drošas paroles, lai pasargātu savu kontu.</h2>
+  <p>Cik garai jābūt jūsu parolei?</p>
+
+  <h2>Paroļu ģenerators</h2>
+
+  <h2>Ievadiet paroles garumu (no 6 līdz ∞ simboliem (izmantojot lielu skaitu simbolu, var rasties latentuma problēmas)):</h2>
+  <div class="container" role="main">
+    <i class="icon-moon" onclick="toggleDarkMode()" tabindex="0" onkeypress="if(event.key === 'Enter' || event.key === ' ') toggleDarkMode()"></i>
+    <form role="form">
+      <label for="length"></label>
+      <input type="text" id="length" name="length" placeholder="Ievadiet paroles garumu:" tabindex="0">
+    </form>
+
+    <label class="checkbox style-e">
+      <input type="checkbox" id="special" checked tabindex="0" onkeypress="if(event.key === 'Enter' || event.key === ' ') this.click()">Izmantot speciālos simbolus:
+      <div class="checkbox__checkmark"></div>
+    </label>
+
+    <label class="checkbox style-e">
+      <input type="checkbox" id="number" checked tabindex="0" onkeypress="if(event.key === 'Enter' || event.key === ' ') this.click()">Izmantot ciparus:                  
+      <div class="checkbox__checkmark"></div>
+    </label>
+
+    <label for="password">Jūsu parole:</label>
+    <input type="text" id="password" name="password" readonly tabindex="0"><br>
+
+    <!-- Minimalistic password generation button -->
+    <div class="button" role="button" tabindex="0" onclick="generatePassword()" onkeypress="if(event.key === 'Enter' || event.key === ' ') generatePassword()"><i class="icon-loading"></i></div>
+
+    <!-- Minimalistic copy password button -->
+    <div class="button" role="button" tabindex="0" onclick="copyPassword()" onkeypress="if(event.key === 'Enter' || event.key === ' ') copyPassword()"><i class="icon-clipboard"></i></div>
+  </div>
+  <script src="script.js" async></script>
+</body>
+</html>
