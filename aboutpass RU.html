@@ -6,22 +6,29 @@
   <meta name="description" content="Описание того, как должен выглядеть безопасный пароль и что делает пароль безопасным">
   <meta name="keywords" content="о пароле, о генераторе"
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="styles.css" async>
+  <link rel="stylesheet" href="styles2.css" async>
   <title>О пароле</title>
 
-<body>
-<div class="navbar">
-  <a href="aboutpass.html" checked tabindex="0" onkeypress="if(event.key === 'Enter' || event.key === ' ') this.click()">О пароле</a>
-  <a href="Terms+Conditions.html" checked tabindex="0" onkeypress="if(event.key === 'Enter' || event.key === ' ') this.click()">Условия соглашения</a>
-  <a href="author's profile.html" checked tabindex="0" onkeypress="if(event.key === 'Enter' || event.key === ' ') this.click()">Об авторе</a>
-  <a href="index.html" checked tabindex="0" onkeypress="if(event.key === 'Enter' || event.key === ' ') this.click()">Генератор паролей</a>
-  <a href="aboutpass RU.html" checked tabindex="0" onkeypress="if(event.key === 'Enter' || event.key === ' ') this.click()">RU версия</a>
-    <img src="russian.svg" loading="lazy" width="50" height="30" alt="флаг русской версии">
-  <a href="aboutpass.html">ENG версия</a>
-    <img src="american.svg" loading="lazy" width="50" height="30" alt="флаг американской версии">
-  <a href="aboutpass LV.html">LV версия</a>
-    <img src="latvian.svg" loading="lazy" width="50" height="30" alt="флаг латвийской версии">
-</div>
+  <body>
+    <nav class="navbar" aria-label="главное меню">
+      <a class="nav-item" href="index.html">
+        <span>Генератор пароля</span>
+      </a>
+      <a class="nav-item" href="timer.html">
+        <span>Таймер</span>
+      </a>
+      <div class="nav-item">
+        <a href="aboutpass RU.html" aria-label="Krievu versija">
+          <img src="russian.svg" width="50" height="30" alt="" loading="lazy">
+        </a>
+        <a href="aboutpass.html" aria-label="Angļu versija">
+          <img src="american.svg" width="50" height="30" alt="" loading="lazy">
+        </a>
+        <a href="aboutpass LV.html" aria-label="Latviešu versija">
+          <img src="latvian.svg" width="50" height="30" alt="" loading="lazy"> 
+        </a>
+      </div>
+    </nav>
   <div class="container">
     <i class="icon-moon" onclick="toggleDarkMode()"></i>
     <form inert>
