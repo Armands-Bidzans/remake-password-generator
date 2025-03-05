@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Izveidojiet spēcīgas, drošas paroles nekavējoties. Pielāgojiet garumu, speciālās rakstzīmes un ciparus. Ar vienu klikšķi nokopēt funkciju.">
-  <meta name="keywords" content="paroles ģenerators, droša parole, tiešsaistes paroles veidotājs">
+  <meta name="description" content="Ģenerējiet spēcīgas, drošas paroles nekavējoties. Pielāgojiet garumu, speciālos simbolus un ciparus. Viena klikšķa kopēšanas funkcija.">
+  <meta name="keywords" content="paroles ģenerators, droša parole, tiešsaistes paroles radītājs">
   <link rel="stylesheet" href="styles.css">
   <title>Drošas Paroles Ģenerators</title>
 </head>
 <body>
   <nav class="navbar" aria-label="Galvenā navigācija">
     <a class="nav-item" href="aboutpass.html">
-      <span>Par paroli</span>
+      <span>Par Parolēm</span>
     </a>
     <a class="nav-item" href="Terms+Conditions.html">
-      <span>Noteikumi un nosacījumi</span>
+      <span>Lietošanas Noteikumi</span>
     </a>
     <a class="nav-item" href="author's profile.html">
-      <span>Par autoru</span>
+      <span>Par Autorū</span>
     </a>
     <a class="nav-item" href="timer.html">
       <span>Taimeris</span>
@@ -36,8 +36,8 @@
   </nav>
 
   <div class="container" role="main">
-    <h2>Izveidojiet spēcīgas, drošas paroles, lai jūsu konts būtu drošībā.</h2>
-    <p>Cik daudz rakstzīmju jābūt jūsu parolei?</p>
+    <h2>Ģenerējiet spēcīgas, drošas paroles, lai aizsargātu savu kontu.</h2>
+    <p>Cik simbolu jābūt jūsu paroli?</p>
 
     <i class="icon-moon" onclick="toggleDarkMode()" tabindex="0" 
       onkeypress="if(event.key === 'Enter' || event.key === ' ') toggleDarkMode()"></i>
@@ -45,21 +45,21 @@
     <form role="form">
       <label for="length" class="visually-hidden">Paroles garums</label>
       <input type="text" id="length" name="length" 
-        placeholder="Ievadiet paroles garumu (6-∞ rakstzīmes)" tabindex="0" 
-        aria-label="Paroles garuma ievade">
+        placeholder="Ievadiet paroles garumu (6-∞ simboli)" tabindex="0" 
+        aria-label="Ievadiet paroles garumu">
     </form>
 
     <div class="checkbox-group">
-      <label class="checkbox">
+      <label class="checkbox style-e">
         <input type="checkbox" id="special" checked tabindex="0" 
           onkeypress="if(event.key === 'Enter' || event.key === ' ') this.click()">
-        <span>Izmantot speciālās rakstzīmes</span>
+        <span>Izmantot speciālos simbolus       </span>
         <div class="checkbox__checkmark"></div>
       </label>
-      <label class="checkbox">
+      <label class="checkbox style-e">
         <input type="checkbox" id="number" checked tabindex="0" 
           onkeypress="if(event.key === 'Enter' || event.key === ' ') this.click()">
-        <span>Izmantot ciparus</span>
+        <span>Izmantot ciparus                        </span>
         <div class="checkbox__checkmark"></div>
       </label>
     </div>

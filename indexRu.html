@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Создавайте надежные, безопасные пароли мгновенно. Настраивайте длину, специальные символы и цифры. Функция копирования в один клик.">
-  <meta name="keywords" content="генератор паролей, безопасный пароль, онлайн-создатель паролей">
+  <meta name="description" content="Мгновенно генерируйте надежные и безопасные пароли. Настраивайте длину, специальные символы и цифры. Функция копирования одним кликом.">
+  <meta name="keywords" content="генератор паролей, безопасный пароль, онлайн создание паролей">
   <link rel="stylesheet" href="styles.css">
   <title>Генератор Безопасных Паролей</title>
 </head>
 <body>
   <nav class="navbar" aria-label="Основная навигация">
-    <a class="nav-item" href="aboutpass RU.html">
+    <a class="nav-item" href="aboutpass.html">
       <span>О паролях</span>
     </a>
-    <a class="nav-item" href="Terms+ConditionsRU.html">
+    <a class="nav-item" href="Terms+Conditions.html">
       <span>Условия использования</span>
     </a>
-    <a class="nav-item" href="author's profile RU.html">
+    <a class="nav-item" href="author's profile.html">
       <span>Об авторе</span>
     </a>
     <a class="nav-item" href="timer.html">
@@ -36,7 +36,7 @@
   </nav>
 
   <div class="container" role="main">
-    <h2>Создавайте надежные, безопасные пароли для защиты вашей учетной записи.</h2>
+    <h2>Создавайте надежные и безопасные пароли для защиты своей учетной записи.</h2>
     <p>Сколько символов должно быть в вашем пароле?</p>
 
     <i class="icon-moon" onclick="toggleDarkMode()" tabindex="0" 
@@ -46,17 +46,17 @@
       <label for="length" class="visually-hidden">Длина пароля</label>
       <input type="text" id="length" name="length" 
         placeholder="Введите длину пароля (6-∞ символов)" tabindex="0" 
-        aria-label="Ввод длины пароля">
+        aria-label="Введите длину пароля">
     </form>
 
     <div class="checkbox-group">
-      <label class="checkbox">
+      <label class="checkbox style-e">
         <input type="checkbox" id="special" checked tabindex="0" 
           onkeypress="if(event.key === 'Enter' || event.key === ' ') this.click()">
         <span>Использовать специальные символы       </span>
         <div class="checkbox__checkmark"></div>
       </label>
-      <label class="checkbox">
+      <label class="checkbox style-e">
         <input type="checkbox" id="number" checked tabindex="0" 
           onkeypress="if(event.key === 'Enter' || event.key === ' ') this.click()">
         <span>Использовать цифры                        </span>
@@ -77,7 +77,7 @@
       <div class="button" role="button" tabindex="0" onclick="copyPassword()" 
         onkeypress="if(event.key === 'Enter' || event.key === ' ') copyPassword()">
         <i class="icon-clipboard"></i>
-        <span class="tooltip-text">Копировать пароль</span>
+        <span class="tooltip-text">Скопировать пароль</span>
       </div>
     </div>
   </div>
