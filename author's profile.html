@@ -1,36 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Information about the author, social networks, links to them and one of the main email addresses, some location information, relevant at least for the time of development and maintenance of this site.">
-  <meta name="keywords" content="author profile, author, information about author"
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="styles2.css" async>
-  <title>Author profile</title>
-  <link rel="inert" href="inert.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Information about the author, social networks, links and contact information.">
+  <meta name="keywords" content="author profile, author information, contact details">
+  <link rel="stylesheet" href="styles2.css">
+  <title>Author Profile</title>
+</head>
+<body>
+  <nav class="navbar" aria-label="Main navigation">
+    <a class="nav-item" href="aboutpass.html">
+      <span>About Password</span>
+    </a>
+    <a class="nav-item" href="Terms+Conditions.html">
+      <span>Terms of Agreement</span>
+    </a>
+    <a class="nav-item" href="author's profile.html" aria-current="page">
+      <span>About Author</span>
+    </a>
+    <a class="nav-item" href="index.html">
+      <span>Password Generator</span>
+    </a>
+    <div class="nav-item">
+      <a href="aboutpass RU.html" aria-label="Russian version">
+        <img src="russian.svg" width="50" height="30" alt="" loading="lazy">
+      </a>
+      <a href="aboutpass.html" aria-label="English version">
+        <img src="american.svg" width="50" height="30" alt="" loading="lazy">
+      </a>
+      <a href="aboutpass LV.html" aria-label="Latvian version">
+        <img src="latvian.svg" width="50" height="30" alt="" loading="lazy">
+      </a>
+    </div>
+  </nav>
 
-  <body>
-  <div class="navbar">
-  <a href="aboutpass.html" checked tabindex="0" onkeypress="if(event.key === 'Enter' || event.key === ' ') this.click()">About password</a>
-  <a href="Terms+Conditions.html" checked tabindex="0" onkeypress="if(event.key === 'Enter' || event.key === ' ') this.click()">Terms of agreement</a>
-  <a href="author's profile.html" checked tabindex="0" onkeypress="if(event.key === 'Enter' || event.key === ' ') this.click()">About author</a>
-  <a href="index.html" checked tabindex="0" onkeypress="if(event.key === 'Enter' || event.key === ' ') this.click()">Password ģenerator</a>
-  <a href="aboutpass RU.html" checked tabindex="0" onkeypress="if(event.key === 'Enter' || event.key === ' ') this.click()">RU версия</a>
-    <img src="russian.svg" loading="lazy" width="50" height="30" alt="russian version flag">
-  <a href="aboutpass.html">ENG version</a>
-    <img src="american.svg" loading="lazy" width="50" height="30" alt="american version flag">
-  <a href="aboutpass LV.html">LV version</a>
-    <img src="latvian.svg" loading="lazy" width="50" height="30" alt="latvian version flag">
+  <div class="container" role="main">
+    <h1>Author Profile</h1>
+    
+    <section aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact Information</h2>
+      <ul class="contact-list">
+        <li>
+          <strong>E-mail:</strong>
+          <a href="mailto:armands.bidzans4.0@gmail.com">armands.bidzans4.0@gmail.com</a>
+        </li>
+        <li>
+          <strong>Location:</strong>
+          <span>Latvia, Riga</span>
+        </li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="social-heading">
+      <h2 id="social-heading">Social Networks</h2>
+      <ul class="social-links">
+        <li>
+          <strong>Discord:</strong>
+          <a href="https://discord.gg/.bebra2" rel="noopener noreferrer">.bebra2</a>
+        </li>
+        <li>
+          <strong>Replit:</strong>
+          <a href="https://replit.com/@ArmandBidzan" rel="noopener noreferrer">ArmandBidzan</a>
+        </li>
+      </ul>
+    </section>
   </div>
-  
-<h2>E-mail:</h2>
-<p>armands.bidzans4.0@gmail.com
-  Author's lokation:
-  Country: Latvija</p>
-<p>City: Riga</p>
-<p>Social networks:
-discord: .bebra2
-https://discord.gg/.bebra2
-replit: https://replit.com/@ArmandBidzan</p>
 </body>
+</html>

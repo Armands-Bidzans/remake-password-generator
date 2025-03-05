@@ -1,35 +1,117 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" data-theme="light">
 <head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Terms of using this website.">
-  <meta name="keywords" content="terms, terms of using, using terms, terms of agreement, agreement"
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="styles2.css" async>
-  <title>Terms of agreement</title>
+  <meta name="keywords" content="terms, terms of using, using terms, terms of agreement, agreement">
+  <title>Terms of Agreement</title>
+  <link rel="stylesheet" href="styles.css">
+  
+  <style>
+    /* Additional terms-specific styles */
+    .terms-container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: var(--nav-bg);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+    }
+    
+    .terms-section {
+      margin-bottom: 2.5rem;
+      padding: 1.5rem;
+      background: var(--bg);
+      border-radius: 12px;
+      border: 1px solid color-mix(in srgb, var(--text) 15%, transparent);
+    }
+    
+    .terms-section h2 {
+      margin-top: 0;
+      color: var(--primary);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .warning {
+      padding: 1.5rem;
+      background: color-mix(in srgb, var(--primary) 10%, transparent);
+      border-left: 4px solid var(--primary);
+      border-radius: 8px;
+      margin: 2rem 0;
+    }
+  </style>
+</head>
 
-  <div class="navbar">
-    <a href="aboutpass.html" checked tabindex="0" onkeypress="if(event.key === 'Enter' || event.key === ' ') this.click()">About password</a>
-    <a href="Terms+Conditions.html" checked tabindex="0" onkeypress="if(event.key === 'Enter' || event.key === ' ') this.click()">Terms of agreement</a>
-    <a href="author's profile.html" checked tabindex="0" onkeypress="if(event.key === 'Enter' || event.key === ' ') this.click()">About author</a>
-    <a href="index.html" checked tabindex="0" onkeypress="if(event.key === 'Enter' || event.key === ' ') this.click()">Password generator</a>
-    <a href="Terms+ConditionsRU.html" checked tabindex="0" onkeypress="if(event.key === 'Enter' || event.key === ' ') this.click()">RU версия</a>
-      <img src="russian.svg" loading="lazy" width="50" height="30" alt="russian version flag">
-    <a href="Terms+Conditions.html" checked tabindex="0" onkeypress="if(event.key === 'Enter' || event.key === ' ') this.click()">ENG version</a>
-      <img src="american.svg" loading="lazy" width="50" height="30" alt="american version flag">
-    <a href="Terms+ConditionsLV.html" checked tabindex="0" onkeypress="if(event.key === 'Enter' || event.key === ' ') this.click()">LV version</a>
-      <img src="latvian.svg" loading="lazy" width="50" height="30" alt="latvian version flag">
-  </div>
+<body>
+  <nav class="navbar">
+    <div class="nav-group">
+      <a href="aboutpass.html" class="nav-item">
+        <span class="icon-info"></span>About password
+      </a>
+      <a href="Terms+Conditions.html" class="nav-item active">
+        <span class="icon-doc"></span>Terms
+      </a>
+      <a href="author's profile.html" class="nav-item">
+        <span class="icon-user"></span>Author
+      </a>
+      <a href="index.html" class="nav-item">
+        <span class="icon-lock"></span>Generator
+      </a>
+    </div>
+    
+    <div class="nav-group">
+      <a href="Terms+ConditionsRU.html" class="nav-item lang-item">
+        <img src="russian.svg" alt="RU" loading="lazy">
+        <span>Русский</span>
+      </a>
+      <a href="Terms+Conditions.html" class="nav-item lang-item active">
+        <img src="american.svg" alt="EN" loading="lazy">
+        <span>English</span>
+      </a>
+      <a href="Terms+ConditionsLV.html" class="nav-item lang-item">
+        <img src="latvian.svg" alt="LV" loading="lazy">
+        <span>Latviski</span>
+      </a>
+    </div>
+  </nav>
 
-<h2>These terms and conditions outline the rules and regulations for the use of this website</h2>
-<h2>By accessing this website we assume you accept these terms and conditions. Don't continue to use this site, if you do not agree to take all of the terms and conditions stated on this page</h2>
-<h2>License</h2>
-<p>Unless otherwise stated, author of webpage and/or its licensors own the intellectual property rights for all material on this website. All intellectual property rights are reserved. You may access this from this website for your own personal use subjected to restrictions set in these terms and conditions.</p>
-  <h2>You must not:</h2>
-  <p>Republish material from this website; Sell, rent or sub-license material from this website; Reproduce, duplicate or copy material from this website;Redistribute content from this site</p>
-    <h2>Reservation of Rights</h2>
-  <p>We reserve the right to request that you remove all links or any particular link to our Website. You approve to immediately remove all links to our Website upon request. We also reserve the right to amen these terms and conditions and it's linking policy at any time. By continuously linking to our Website, you agree to be bound to and follow these linking terms and conditions.</p>
-      <h2>Removal of links from our website</h2>
-  <p>If you find any link on our Website that is offensive for any reason, you are free to contact and inform us any moment. We will consider requests to remove links but we are not obligated to or so or to respond to you directly.</p>
-  <p>We do not ensure that the information on this website is correct, we do not warrant its completeness or accuracy; nor do we promise to ensure that the website remains available or that the material on the website is kept up to date.</p>
+  <main class="terms-container">
+    <div class="warning">
+      <h2>Important Notice</h2>
+      <p>By using this website you accept our terms and conditions. Discontinue use if you do not agree.</p>
+    </div>
+
+    <div class="terms-section">
+      <h2>License</h2>
+      <p>All materials are protected by intellectual property laws. You may access content for personal use under these terms:</p>
+      <ul class="prohibited-list">
+        <li>Republish or redistribute website material</li>
+        <li>Sell or sub-license content</li>
+        <li>Duplicate or copy materials</li>
+      </ul>
+    </div>
+
+    <div class="terms-section">
+      <h2>Rights Reservation</h2>
+      <p>We reserve the right to:</p>
+      <ul>
+        <li>Request removal of links to our site</li>
+        <li>Modify terms without prior notice</li>
+        <li>Update content at our discretion</li>
+      </ul>
+    </div>
+
+    <div class="terms-section">
+      <h2>Content Disclaimer</h2>
+      <p>While we strive for accuracy:</p>
+      <ul>
+        <li>We don't guarantee completeness</li>
+        <li>Information may become outdated</li>
+        <li>Availability isn't guaranteed</li>
+      </ul>
+    </div>
+  </main>
+</body>
+</html>

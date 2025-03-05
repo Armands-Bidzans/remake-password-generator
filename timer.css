@@ -1,32 +1,151 @@
-body {
-  font-family: Arial, sans-serif;
-  display: flex;
-  flex-direction: column; /* Добавлено */
-  height: 100vh;
-  margin: 0;
+/* Полный дубликат навигационных стилей из styles.css */
+:root {
+    --bg-light: #faf9f6;
+    --bg-dark: #0e0c0a;
+    --text-light: #0e0c0a;
+    --text-dark: #faf9f6;
+    --primary: #6366f1;
 }
 
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1.5rem;
+    margin: -1rem -1rem 2rem;
+    justify-content: center;
+    background: var(--bg-light);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    border-radius: 12px;
+}
+
+.nav-item {
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-light);
+    background: rgba(99, 102, 241, 0.08);
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 2px solid transparent;
+    font-weight: 500;
+}
+
+    .nav-item:hover {
+        background: rgba(99, 102, 241, 0.15);
+        border-color: rgba(99, 102, 241, 0.25);
+        transform: translateY(-1px);
+    }
+
+.dark-mode .navbar {
+    background: var(--bg-dark);
+    box-shadow: 0 2px 12px rgba(255,255,255,0.05);
+}
+
+.dark-mode .nav-item {
+    color: var(--text-dark);
+    background: rgba(99, 102, 241, 0.12);
+}
+
+    .dark-mode .nav-item:hover {
+        background: rgba(99, 102, 241, 0.2);
+    }
+
+@media (max-width: 768px) {
+    .navbar {
+        gap: 0.8rem;
+        padding: 1rem;
+    }
+
+    .nav-item {
+        padding: 0.75rem 1.2rem;
+        font-size: 0.95rem;
+    }
+
+        .nav-item img {
+            width: 40px;
+            height: 25px;
+        }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .nav-item {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Стили специфичные для таймера */
 .timer-container {
-  text-align: center;
-  margin-top: 20px; /* Добавлено для отступа от навигационной панели */
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
 }
 
 #timer {
-  font-size: 3em;
-  margin-bottom: 20px;
+    font-size: 4.5rem;
+    font-weight: 700;
+    margin: 2rem 0;
+    padding: 1.5rem 3rem;
+    background: rgba(99, 102, 241, 0.08);
+    border-radius: 12px;
+    display: inline-block;
 }
 
-button {
-  font-size: 1em;
-  padding: 10px 20px;
-  margin: 0 10px;
-  cursor: pointer;
+.button-group {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: 2rem;
 }
-.navbar{background-color: #333;overflow:hidden;text-align:center;font-size: 27px;}.navbar a {display:inline-block;color:white;padding: 0px 10px;text-decoration:none;font-size: 27px;}.container,.navbar{text-align:center}.container{max-width:400px;margin:30px auto;padding:20px;border:4px solid #9b9b9b;border-radius:70px;}
-/* unpotimized version of this code: https://docs.google.com/document/d/1SG78jX_GDvPWW-sDBHtKWxn8chfQZU7G0ryFuUWwGwg/edit?usp=sharing */
-body{background-color: #fff;margin:0;padding:0}
-p{margin:0 0 10px;font-size:20px}
-.dark-mode{background-color:#000;color:#fff;}
 
-label{display:flex;padding:10px}
-h1,p,h2{text-align:center};
+.btn {
+    padding: 12px 32px;
+    border: none;
+    border-radius: 8px;
+    background: var(--primary);
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+    }
+
+.theme-toggler {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+/* Темная тема для таймера */
+.dark-mode {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+    .dark-mode #timer {
+        background: rgba(99, 102, 241, 0.12);
+    }
+
+@media (max-width: 768px) {
+    #timer {
+        font-size: 3.5rem;
+        padding: 1rem 2rem;
+    }
+
+    .btn {
+        padding: 10px 24px;
+    }
+}
