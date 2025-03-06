@@ -1,28 +1,24 @@
 'use strict';
-var lengthInput = document.getElementById("length");
-const special = document.getElementById("special"),
-    number = document.getElementById("number"),
-    password = document.getElementById("password"),
-    localizedStrings = {
-        en: {
-            invalidLength: "Password length must be a valid number greater than or equal to 6",
-            copyNotSupported: "Your browser doesn't support copying to clipboard.",
-            copySuccess: "Password copied successfully!",
-            copyError: "Error copying password. Please try again."
-        },
-        ru: {
-            invalidLength: "Длина пароля должна быть корректным числом больше или равна 6",
-            copyNotSupported: "Ваш браузер не поддерживает копирование в буфер обмена.",
-            copySuccess: "Пароль успешно скопирован!",
-            copyError: "Ошибка копирования пароля. Пожалуйста, попробуйте еще раз."
-        },
-        lv: {
-            invalidLength: "Paroles garumam jābūt derīgam skaitlim, kas ir lielāks vai vienāds ar 6",
-            copyNotSupported: "Jūsu pārlūkprogramma neatbalsta kopēšanu starpliktuvē.",
-            copySuccess: "Parole veiksmīgi kopēta!",
-            copyError: "Kļūda kopējot paroli. Lūdzu, mēģiniet vēlreiz."
-        }
-    };
+var lengthInput = document.getElementById("length"); 
+const special = document.getElementById("special"), number = document.getElementById("number"), password = document.getElementById("password"),
+
+localizedStrings = {
+    en: {
+invalidLength: "Password length must be a valid number greater than or equal to 6",
+copyNotSupported: "Your browser doesn't support copying to clipboard.",
+copySuccess: "Password copied successfully!",
+copyError: "Error copying password. Please try again."},
+    ru: {
+invalidLength: "Длина пароля должна быть корректным числом больше или равна 6",
+copyNotSupported: "Ваш браузер не поддерживает копирование в буфер обмена.",
+copySuccess: "Пароль успешно скопирован!",
+copyError: "Ошибка копирования пароля. Пожалуйста, попробуйте еще раз."},
+    lv: {
+invalidLength: "Paroles garumam jābūt derīgam skaitlim, kas ir lielāks vai vienāds ar 6",
+copyNotSupported: "Jūsu pārlūkprogramma neatbalsta kopēšanu starpliktuvē.",
+copySuccess: "Parole veiksmīgi kopēta!",
+copyError: "Kļūda kopējot paroli. Lūdzu, mēģiniet vēlreiz."}
+};
 
 function getCurrentLanguage() {
     return document.documentElement.lang || "en";
@@ -60,15 +56,10 @@ number.addEventListener("change", generatePassword);
 generatePassword();
 
 
-
-
-
-
-
  function copyPassword() {
-     const passwordText = password.value;
+    const passwordText = password.value;
     const currentLang = getCurrentLanguage();
-     const strings = localizedStrings[currentLang] || localizedStrings.en;
+    const strings = localizedStrings[currentLang] || localizedStrings.en;
 
      if (!navigator.clipboard) {
          alert(strings.copyNotSupported);
@@ -78,5 +69,4 @@ generatePassword();
        .then(() => alert(strings.copySuccess))
        .catch(() => alert(strings.copyError));
  }
-// legacy code of copying password, unused because execCommand is deprecated and unsafe function copypassword(){var e=document.getElementById("password");e.select(),document.execCommand("copy")
  function toggleDarkMode(){document.body.classList.toggle("dark-mode")};
