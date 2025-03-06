@@ -1,204 +1,129 @@
-  /* styles.css */
-  :root {
-    --bg: #faf9f6; --text: #0e0c0a; --primary: #6366f1; --nav-bg: rgba(99, 102, 241, 0.08);
-    --shadow: 0 2px 12px rgba(0,0,0,0.1); --check-bg: #b3b3b3; --check: #2c6786;
-    -webkit-tap-highlight-color: transparent;
-  }
+:root {
+  --bg: #faf9f6;
+  --text: #0e0c0a;
+  --primary: #6366f1;
+  --nav-bg: rgba(99, 102, 241, 0.08);
+  --shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  -webkit-tap-highlight-color: transparent;
+}
 
-  .dark-mode {
-    --bg: #0e0c0a; --text: #faf9f6; --nav-bg: rgba(99, 102, 241, 0.12);
-    --shadow: 0 2px 12px rgba(255,255,255,0.05); --check-bg: #666; --check: #3a8bbb;
-  }
+.dark-mode {
+  --bg: #0e0c0a;
+  --text: #faf9f6;
+  --nav-bg: rgba(99, 102, 241, 0.12);
+  --shadow: 0 2px 12px rgba(255, 255, 255, 0.05);
+}
 
-  /* Базовые стили */
-  html {
-    box-sizing: border-box;
-    touch-action: manipulation;
-  }
+/* Базовые стили */
+html {
+  box-sizing: border-box;
+  touch-action: manipulation;
+}
 
-  *, *:before, *:after {
-    box-sizing: inherit;
-  }
+*, *::before, *::after {
+  box-sizing: inherit;
+}
 
+body {
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  padding: 20px;
+  font: 1rem/1.6 system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  transition: background 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Центрирование изображений внутри контейнера */
+.container img {
+  display: block;
+  margin: 20px auto;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Навигация */
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1.5rem;
+  margin: -1rem -1rem 2rem;
+  justify-content: center;
+  background: var(--bg);
+  box-shadow: var(--shadow);
+  border-radius: 12px;
+  transition: box-shadow 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.nav-item {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text);
+  background: var(--nav-bg);
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 2px solid transparent;
+  font-weight: 500;
+  will-change: transform, background, border-color;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (hover: hover) {
+  .nav-item:hover {
+    background: color-mix(in srgb, var(--primary) 15%, transparent);
+    border-color: color-mix(in srgb, var(--primary) 25%, transparent);
+    transform: translateY(-1px);
+  }
+}
+
+.nav-item:active {
+  transform: translateY(0);
+  transition-duration: 0.1s;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
   body {
-    background: var(--bg);
-    color: var(--text);
-    margin: 0;
-    padding: 20px;
-    font: 1rem/1.6 system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    transition: background 0.3s ease, color 0.3s ease;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    padding: 15px;
   }
 
-  .container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
-  }
-
-  /* Центрирование изображений */
-  .container img {
-    display: block;
-    margin: 20px auto;
-    max-width: 100%;
-    height: auto;
-  }
-
-  /* Поле ввода */
-  input[type="text"] {
-    width: 100%;
-    padding: 12px;
-    margin: 8px 0;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    box-sizing: border-box;
-    transition: border-color 0.3s ease;
-    -webkit-appearance: none;
-    appearance: none;
-  }
-
-  /* Навигация */
   .navbar {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    padding: 1.5rem;
-    margin: -1rem -1rem 2rem;
-    justify-content: center;
-    background: var(--bg);
-    box-shadow: var(--shadow);
-    border-radius: 12px;
-    transition: box-shadow 0.3s ease;
-    position: relative;
-    z-index: 1;
+    gap: 0.8rem;
+    padding: 1rem;
+    margin: -0.5rem -0.5rem 1.5rem;
   }
 
   .nav-item {
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    text-decoration: none;
-    color: var(--text);
-    background: var(--nav-bg);
-    transition: all 0.25s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    border: 2px solid transparent;
-    font-weight: 500;
-    will-change: transform, background, border-color;
-    -webkit-tap-highlight-color: transparent;
+    padding: 0.75rem 1.2rem;
+    font-size: 0.95rem;
+    flex: 1 1 auto;
+    text-align: center;
   }
+}
 
-  @media (hover: hover) {
-    .nav-item:hover {
-      background: color-mix(in srgb, var(--primary) 15%, transparent);
-      border-color: color-mix(in srgb, var(--primary) 25%, transparent);
-      transform: translateY(-1px);
-    }
-  }
-
-  .nav-item:active {
-    transform: translateY(0);
-    transition-duration: 0.1s;
-  }
-
-  /* Исправленные кнопки с анимацией */
-  .button-group {
-    display: flex;
-    margin-top: -1.5rem;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .button {
-    position: relative;
-    display: inline-flex;
+@media (max-width: 480px) {
+  .navbar {
     flex-direction: column;
-    align-items: center;
-    margin: 5px;
-    font-size: 27px;
-    padding: 24px 32px;
-    min-width: 140px;
-    transition: transform 0.3s ease;
-    will-change: transform;
-    touch-action: manipulation;
+    gap: 0.5rem;
+    border-radius: 8px;
   }
 
-  .tooltip-text {
-    position: absolute;
-    bottom: -15px;
-    opacity: 0;
-    visibility: hidden;
-    transition: 0.25s ease;
-    font-size: 0.6em;
-    background: var(--text);
-    color: var(--bg);
-    padding: 4px 8px;
-    border-radius: 4px;
-    white-space: nowrap;
-    pointer-events: none;
+  .nav-item {
+    width: 100%;
+    justify-content: center;
   }
-
-  /* Исправленные анимации для мобильных */
-  .button:active {
-    animation: btn 0.3s ease forwards;
-    transform: scale(1.15);
-  }
-
-  @media (hover: hover) {
-    .button:hover {
-      transform: scale(1.2);
-      animation: btn 0.3s ease;
-    }
-
-    .button:hover .tooltip-text {
-      opacity: 1;
-      visibility: visible;
-    }
-  }
-
-  /* Адаптивность */
-  @media (max-width: 768px) {
-    body {
-      padding: 15px;
-    }
-
-    .navbar {
-      gap: 0.8rem;
-      padding: 1rem;
-      margin: -0.5rem -0.5rem 1.5rem;
-    }
-
-    .nav-item {
-      padding: 0.75rem 1.2rem;
-      font-size: 0.95rem;
-      flex: 1 1 auto;
-      text-align: center;
-    }
-
-    input, button {
-      width: 100%;
-      font-size: 16px;
-    }
-
-    .button {
-      font-size: 24px;
-      padding: 20px 28px;
-      min-width: 120px;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .navbar {
-      flex-direction: column;
-      gap: 0.5rem;
-      border-radius: 8px;
-    }
-
-    .nav-item {
-      width: 100%;
-      justify-content: center;
-    }
-  }
+}
