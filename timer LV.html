@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Taimeris</title>
+  <link rel="stylesheet" href="timer.css" async>
+</head>
+<body>
+  <nav class="navbar" aria-label="Galvenā navigācija">
+    <a class="nav-item" href="aboutpass LV.html"> <!--Changed to aboutpass LV.html-->
+      <span>Par Parolēm</span>
+    </a>
+    <a class="nav-item" href="indexLV.html"> <!-- Changed to indexLV.html -->
+      <span>Paroļu Ģenerators</span>
+    </a>
+    <div class="nav-item">
+      <a href="timer RU.html" aria-label="Krievu versija">
+        <img src="russian.svg" width="50" height="30" alt="Krievijas karogs" loading="lazy"> <!--Added Alt Text-->
+      </a>
+      <a href="timer.html" aria-label="Angļu versija">
+        <img src="american.svg" width="50" height="30" alt="Amerikas karogs" loading="lazy"> <!--Added Alt Text-->
+      </a>
+      <a href="timerLV.html" aria-label="Latviešu versija">
+        <img src="latvian.svg" width="50" height="30" alt="Latvijas karogs" loading="lazy"> <!--Added Alt Text-->
+      </a>
+    </div>
+  </nav>
+
+  <main class="timer-container">
+    <input type="text" class="time-display" id="timerInput" value="25:00" pattern="[0-9]{1,2}:[0-5][0-9]">
+    <div class="button-group">
+      <button class="btn" id="startButton">Sākt</button>
+      <button class="btn hidden" id="pauseButton">Pauze</button>
+      <button class="btn hidden" id="resumeButton">Turpināt</button>
+      <button class="btn" id="resetButton">Atiestatīt</button>
+    </div>
+  </main>
+
+  <script src="timer.js" async></script>
+</body>
+</html>

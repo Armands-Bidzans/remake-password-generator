@@ -3,57 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Ģenerējiet spēcīgas un drošas paroles uzreiz. Pielāgojiet garumu, speciālos simbolus un ciparus. Viena klikšķa kopēšanas funkcija.">
-  <meta name="keywords" content="paroles ģenerators, droša parole, tiešsaistes paroles veidotājs">
+  <meta name="description" content="Ģenerējiet spēcīgas, drošas paroles uzreiz. Pielāgojiet garumu, speciālās rakstzīmes un ciparus. Kopēšanas funkcija ar vienu klikšķi.">
+  <meta name="keywords" content="paroļu ģenerators, droša parole, tiešsaistes paroļu veidotājs">
   <link rel="stylesheet" href="styles.css" async>
   <title>Drošu Paroļu Ģenerators</title>
 </head>
 
 <body>
-<nav class="navbar" aria-label="Galvenā navigācija">
-  <a class="nav-item" href="aboutpass.html">
-    <span>Par Parolēm</span>
-  </a>
-  <a class="nav-item" href="timer.html">
-    <span>Taimeris</span>
-  </a>
-<div class="nav-item">
-  <a href="indexRu.html" aria-label="Krievu versija">
-    <img src="russian.svg" width="50" height="30" alt="" loading="lazy">
-  </a>
-  <a href="index.html" aria-label="Angļu versija">
-    <img src="american.svg" width="50" height="30" alt="" loading="lazy">
-  </a>
-  <a href="indexLV.html" aria-label="Latviešu versija">
-    <img src="latvian.svg" width="50" height="30" alt="" loading="lazy">
-  </a>
-</div>
+  <nav class="navbar" aria-label="Galvenā navigācija">
+    <a class="nav-item" href="aboutpass LV.html" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click()">
+      <span>Par Parolēm</span>
+    </a>
+    <a class="nav-item" href="timer LV.html" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click()">
+      <span>Taimeris</span>
+    </a>
+    <div class="nav-item">
+      <a href="indexRu.html" aria-label="Krievu versija" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click()">
+        <img src="russian.svg" width="50" height="30" alt="Krievijas karogs" loading="lazy">
+      </a>
+      <a href="index.html" aria-label="Angļu versija" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click()">
+        <img src="american.svg" width="50" height="30" alt="Amerikas karogs" loading="lazy">
+      </a>
+      <a href="indexLV.html" aria-label="Latviešu versija" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click()">
+        <img src="latvian.svg" width="50" height="30" alt="Latvijas karogs" loading="lazy">
+      </a>
+    </div>
 </nav>
 
 <div class="container" role="main">
-  <h2>Ģenerējiet spēcīgas un drošas paroles, lai aizsargātu savu kontu.</h2>
-  <p>Cik simboliem jābūt jūsu parolē?</p>
+  <h2>Ģenerējiet spēcīgas, drošas paroles, lai aizsargātu savu kontu.</h2>
+  <p>Cik gariem jābūt jūsu parolei?</p>
 
-  <i class="icon-moon" onclick="toggleDarkMode()" tabindex="0" onkeypress="if(event.key === 'Enter' || event.key === ' ') toggleDarkMode()"></i>
+  <i class="icon-moon" onclick="toggleDarkMode()" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') toggleDarkMode()"></i>
 
 <form role="form">
   <label for="length" class="visually-hidden">Paroles garums</label>
-  <input type="text" id="length" name="length" 
-  placeholder="Ievadiet paroles garumu (6-∞ simboli)" tabindex="0" 
+  <input type="text" id="length" name="length"
+  placeholder="Ievadiet paroles garumu (6-∞ rakstzīmes)" tabindex="0"
   aria-label="Ievadiet paroles garumu">
 </form>
 
 <div class="checkbox-group">
 <label class="checkbox style-e">
-  <input type="checkbox" id="special" checked tabindex="0" 
-onkeypress="if(event.key === 'Enter' || event.key === ' ') this.click()">
-  <span>Izmantot speciālos simbolus       </span>
+  <input type="checkbox" id="special" checked tabindex="0"
+onkeyup="if(event.key === 'Enter' || event.key === ' ') this.click()">
+  <span>Lietot speciālās rakstzīmes       </span>
 <div class="checkbox__checkmark"></div>
 </label>
 
 <label class="checkbox style-e">
-  <input type="checkbox" id="number" checked tabindex="0" onkeypress="if(event.key === 'Enter' || event.key === ' ') this.click()">
-  <span>Izmantot ciparus</span>
+  <input type="checkbox" id="number" checked tabindex="0" onkeyup="if(event.key === 'Enter' || event.key === ' ') this.click()">
+  <span>Lietot ciparus</span>
 <div class="checkbox__checkmark"></div>
 </label>
 </div>
@@ -62,16 +62,16 @@ onkeypress="if(event.key === 'Enter' || event.key === ' ') this.click()">
 <input type="text" id="password" name="password" readonly tabindex="0" aria-label="Ģenerētā parole">
 
 <div class="button-group">
-  <div class="button" role="button" tabindex="0" onclick="generatePassword()" onkeypress="if(event.key === 'Enter' || event.key === ' ') generatePassword()">
-  <i class="icon-loading"></i>
-  <span class="tooltip-text">Ģenerēt paroli</span>
+  <div class="button" role="button" tabindex="0" onclick="generatePassword()" onkeydown="if(event.key === 'Enter' || event.key === ' ') generatePassword()">
+    <i class="icon-loading"></i>
+    <span class="tooltip-text">Ģenerēt paroli</span>
 </div>
-<div class="button" role="button" tabindex="0" onclick="copyPassword()" onkeypress="if(event.key === 'Enter' || event.key === ' ') copyPassword()">
-<i class="icon-clipboard"></i>
-  <span class="tooltip-text">Kopēt paroli</span>
-</div>
-</div>
+  <div class="button" role="button" tabindex="0" onclick="copyPassword()" onkeydown="if(event.key === 'Enter' || event.key === ' ') copyPassword()">
+    <i class="icon-clipboard"></i>
+    <span class="tooltip-text">Kopēt paroli</span>
+  </div>
 
+</div>
 <script src="script.js" async></script>
 </body>
 </html>
