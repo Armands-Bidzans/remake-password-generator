@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Generate strong, secure passwords instantly. Customize length, special characters, and numbers. One-click copy function.">
-  <meta name="keywords" content="password generator, secure password, online password creator">
-  <link rel="stylesheet" href="styles.css" async>
-  <title>Secure Password Generator</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Generate strong, secure passwords instantly. Customize length, special characters, and numbers. One-click copy function.">
+<meta name="keywords" content="password generator, secure password, online password creator">
+<link rel="stylesheet" href="styles.css" async>
+<title>Secure Password Generator</title>
 </head>
 
 <body>
@@ -19,7 +19,7 @@
     </a>
     <div class="nav-item">
       <a href="indexRu.html" aria-label="Russian version" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click()">
-        <img src="russian.svg" width="50" height="30" alt="Russian Flag" loading="lazy">
+      <img src="russian.svg" width="50" height="30" alt="Russian Flag" loading="lazy">
       </a>
       <a href="index.html" aria-label="English version" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click()">
         <img src="american.svg" width="50" height="30" alt="American Flag" loading="lazy">
@@ -34,7 +34,9 @@
   <h2>Generate strong, secure passwords to protect your account.</h2>
   <p>How many characters should your password be?</p>
 
-  <i class="icon-moon" onclick="toggleDarkMode()" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') toggleDarkMode()"></i>
+  <button class="icon-moon" onclick="toggleDarkMode()" tabindex="0" 
+    onkeydown="if(event.key === 'Enter' || event.key === ' ') toggleDarkMode()"
+    aria-label="Toggle dark mode"></button>
 
 <form role="form">
   <label for="length" class="visually-hidden">Password length</label>
@@ -46,14 +48,14 @@
 <div class="checkbox-group">
 <label class="checkbox style-e">
   <input type="checkbox" id="special" checked tabindex="0" 
-onkeyup="if(event.key === 'Enter' || event.key === ' ') this.click()">
-  <span>Use special characters       </span>
+  onkeyup="if(event.key === 'Enter' || event.key === ' ') this.click()">
+  <span>Use special characters</span>
 <div class="checkbox__checkmark"></div>
 </label>
 
 <label class="checkbox style-e">
   <input type="checkbox" id="number" checked tabindex="0" onkeyup="if(event.key === 'Enter' || event.key === ' ') this.click()">
-  <span>Use numbers</span>
+  <span>Use numbers                            </span>
 <div class="checkbox__checkmark"></div>
 </label>
 </div>
@@ -62,15 +64,18 @@ onkeyup="if(event.key === 'Enter' || event.key === ' ') this.click()">
 <input type="text" id="password" name="password" readonly tabindex="0" aria-label="Generated password">
 
 <div class="button-group">
-  <div class="button" role="button" tabindex="0" onclick="generatePassword()" onkeydown="if(event.key === 'Enter' || event.key === ' ') generatePassword()">
+  <div class="button" role="button" tabindex="0" onclick="generatePassword()" 
+    onkeydown="if(event.key === 'Enter' || event.key === ' ') generatePassword()"
+    aria-label="Generate password">
     <i class="icon-loading"></i>
     <span class="tooltip-text">Generate password</span>
 </div>
-  <div class="button" role="button" tabindex="0" onclick="copyPassword()" onkeydown="if(event.key === 'Enter' || event.key === ' ') copyPassword()">
+  <div class="button" role="button" tabindex="0" onclick="copyPassword()" 
+    onkeydown="if(event.key === 'Enter' || event.key === ' ') copyPassword()"
+    aria-label="Copy password">
     <i class="icon-clipboard"></i>
     <span class="tooltip-text">Copy password</span>
   </div>
-
 </div>
 <script src="script.js" async></script>
 </body>

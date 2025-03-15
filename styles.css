@@ -178,9 +178,9 @@ input[type="text"] {
   pointer-events: none;
 }
 @keyframes btn {
-  0% { transform: scale(1.2) rotate(0); }
-  15% { transform: scale(1.2) rotate(-2deg); }
-  30% { transform: scale(1.2) rotate(2deg); }
+  0% { transform: scale(1.0) rotate(0); }
+  15% { transform: scale(1.1) rotate(-2deg); }
+  30% { transform: scale(1.15) rotate(2deg); }
   45% { transform: scale(1.2) rotate(-1.5deg); }
   60% { transform: scale(1.2) rotate(1.5deg); }
   75% { transform: scale(1.2) rotate(-1deg); }
@@ -237,6 +237,44 @@ input, button {width: 100%; font-size:16px;}
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.icon-moon {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  transition: transform 0.2s ease;
+}
+.icon-moon:active {
+  animation: spin 0.3s ease;
+}
+@keyframes spin {
+  0% { transform: rotate(0); }
+  5% { transform: rotate(4deg); }
+  10% { transform: rotate(8deg); }
+  15% { transform: rotate(12deg); }
+  20% { transform: rotate(16deg); }
+  25% { transform: rotate(19deg); }
+  30% { transform: rotate(22deg); }
+  35% { transform: rotate(25deg); }
+  40% { transform: rotate(28deg); }
+  45% { transform: rotate(29deg); }
+  50% { transform: rotate(30deg); }
+  55% { transform: rotate(27deg); }
+  60% { transform: rotate(20deg); }
+  65% { transform: rotate(15deg); }
+  70% { transform: rotate(10deg); }
+  75% { transform: rotate(5deg); }
+  80% { transform: rotate(-5deg); }
+  85% { transform: rotate(-8deg); }
+  90% { transform: rotate(-10deg); }
+  95% { transform: rotate(-5deg); }
+  100% { transform: rotate(0); }
+}
+
+
+
 .icon-clipboard::before { content: '\e801';}
 .icon-moon::before { content: '\f186';}
 .icon-loading::before { content: '\e800';}

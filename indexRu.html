@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Мгновенно генерируйте надежные, безопасные пароли. Настраивайте длину, специальные символы и цифры. Функция копирования в один клик.">
-  <meta name="keywords" content="генератор паролей, надежный пароль, онлайн-создатель паролей">
-  <link rel="stylesheet" href="styles.css" async>
-  <title>Генератор надежных паролей</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Мгновенно генерируйте надежные и безопасные пароли. Настраивайте длину, специальные символы и числа. Функция копирования в один клик.">
+<meta name="keywords" content="генератор паролей, безопасный пароль, онлайн создатель паролей">
+<link rel="stylesheet" href="styles.css" async>
+<title>Генератор безопасных паролей</title>
 </head>
 
 <body>
-  <nav class="navbar" aria-label="Основная навигация">
+  <nav class="navbar" aria-label="Главная навигация">
     <a class="nav-item" href="aboutpass.html" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click()">
       <span>О паролях</span>
     </a>
@@ -19,41 +19,43 @@
     </a>
     <div class="nav-item">
       <a href="indexRu.html" aria-label="Русская версия" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click()">
-        <img src="russian.svg" width="50" height="30" alt="Русский флаг" loading="lazy">
+      <img src="russian.svg" width="50" height="30" alt="Российский флаг" loading="lazy">
       </a>
       <a href="index.html" aria-label="Английская версия" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click()">
         <img src="american.svg" width="50" height="30" alt="Американский флаг" loading="lazy">
       </a>
-      <a href="indexLV.html" aria-label="Латышская версия" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click()">
-        <img src="latvian.svg" width="50" height="30" alt="Латышский флаг" loading="lazy">
+      <a href="indexLV.html" aria-label="Латвийская версия" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click()">
+        <img src="latvian.svg" width="50" height="30" alt="Латвийский флаг" loading="lazy">
       </a>
     </div>
 </nav>
 
 <div class="container" role="main">
-  <h2>Генерируйте надежные, безопасные пароли для защиты вашей учетной записи.</h2>
-  <p>Сколько символов должен содержать ваш пароль?</p>
+  <h2>Генерируйте надежные и безопасные пароли для защиты вашей учетной записи.</h2>
+  <p>Сколько символов должно быть в вашем пароле?</p>
 
-  <i class="icon-moon" onclick="toggleDarkMode()" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') toggleDarkMode()"></i>
+  <button class="icon-moon" onclick="toggleDarkMode()" tabindex="0" 
+    onkeydown="if(event.key === 'Enter' || event.key === ' ') toggleDarkMode()"
+    aria-label="Переключить темный режим"></button>
 
 <form role="form">
   <label for="length" class="visually-hidden">Длина пароля</label>
-  <input type="text" id="length" name="length"
-  placeholder="Введите длину пароля (6-∞ символов)" tabindex="0"
+  <input type="text" id="length" name="length" 
+  placeholder="Введите длину пароля (6-∞ символов)" tabindex="0" 
   aria-label="Введите длину пароля">
 </form>
 
 <div class="checkbox-group">
 <label class="checkbox style-e">
-  <input type="checkbox" id="special" checked tabindex="0"
-onkeyup="if(event.key === 'Enter' || event.key === ' ') this.click()">
-  <span>Использовать специальные символы       </span>
+  <input type="checkbox" id="special" checked tabindex="0" 
+  onkeyup="if(event.key === 'Enter' || event.key === ' ') this.click()">
+  <span>Использовать специальные символы</span>
 <div class="checkbox__checkmark"></div>
 </label>
 
 <label class="checkbox style-e">
   <input type="checkbox" id="number" checked tabindex="0" onkeyup="if(event.key === 'Enter' || event.key === ' ') this.click()">
-  <span>Использовать цифры</span>
+  <span>Использовать числа</span>
 <div class="checkbox__checkmark"></div>
 </label>
 </div>
@@ -62,15 +64,18 @@ onkeyup="if(event.key === 'Enter' || event.key === ' ') this.click()">
 <input type="text" id="password" name="password" readonly tabindex="0" aria-label="Сгенерированный пароль">
 
 <div class="button-group">
-  <div class="button" role="button" tabindex="0" onclick="generatePassword()" onkeydown="if(event.key === 'Enter' || event.key === ' ') generatePassword()">
+  <div class="button" role="button" tabindex="0" onclick="generatePassword()" 
+    onkeydown="if(event.key === 'Enter' || event.key === ' ') generatePassword()"
+    aria-label="Сгенерировать пароль">
     <i class="icon-loading"></i>
     <span class="tooltip-text">Сгенерировать пароль</span>
 </div>
-  <div class="button" role="button" tabindex="0" onclick="copyPassword()" onkeydown="if(event.key === 'Enter' || event.key === ' ') copyPassword()">
+  <div class="button" role="button" tabindex="0" onclick="copyPassword()" 
+    onkeydown="if(event.key === 'Enter' || event.key === ' ') copyPassword()"
+    aria-label="Скопировать пароль">
     <i class="icon-clipboard"></i>
     <span class="tooltip-text">Скопировать пароль</span>
   </div>
-
 </div>
 <script src="script.js" async></script>
 </body>
