@@ -68,15 +68,12 @@ input[type="text"] {
   gap: 0.5rem;
   border: 2px solid transparent;
   font-weight: 500;
-  will-change: transform, background, border-color;
   -webkit-tap-highlight-color: transparent;
 }
-@media (hover: hover) {
-  .nav-item:hover {
-    background: color-mix(in srgb, var(--primary) 15%, transparent);
-    border-color: color-mix(in srgb, var(--primary) 25%, transparent);
-    transform: translateY(-1px);
-  }
+.nav-item:hover {
+  background: color-mix(in srgb, var(--primary) 15%, transparent);
+  border-color: color-mix(in srgb, var(--primary) 25%, transparent);
+  transform: translateY(-1px);
 }
 .nav-item:active { transform: translateY(0); transition-duration: 0.1s; }
 
@@ -107,8 +104,7 @@ input[type="text"] {
   height: 22px;
   background: #333;
   border-radius: 11px;
-  transition: transform 0.25s cubic-bezier(0.4,0,0.2,1), background-color 0.25s cubic-bezier(0.4,0,0.2,1), box-shadow 0.25s cubic-bezier(0.4,0,0.2,1);
-  will-change: transform, background-color, box-shadow;
+  transition: background-color 0.25s ease, box-shadow 0.25s ease;
 }
 .checkbox.style-e .checkbox__checkmark::after {
   content: "";
@@ -119,29 +115,20 @@ input[type="text"] {
   height: 16px;
   background: #f0f8ff;
   border-radius: 50%;
-  transition: transform 0.25s cubic-bezier(0.4,0,0.2,1), background-color 0.25s cubic-bezier(0.4,0,0.2,1);
-  will-change: transform;
+  transition: transform 0.25s ease, background-color 0.25s ease;
 }
 .checkbox.style-e input:not(:checked) ~ .checkbox__checkmark { background: var(--check-bg); }
 @media (hover: hover) {
   .checkbox.style-e:hover .checkbox__checkmark {
     box-shadow: 0 0 5px rgba(0,0,0,0.1);
-    transform: scale(1.05);
   }
   .checkbox.style-e:hover .checkbox__checkmark::after { background: #e0e0e0; }
   .checkbox.style-e:hover input:checked ~ .checkbox__checkmark { background: #333; }
-}
-.checkbox.style-e:active .checkbox__checkmark {
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
-  transform: scale(1.05);
 }
 .checkbox.style-e input:checked ~ .checkbox__checkmark { background: var(--check); }
 .checkbox.style-e input:checked ~ .checkbox__checkmark::after {
   transform: translateX(18px);
   background: #f0f8ff;
-}
-.checkbox.style-e:active input:checked ~ .checkbox__checkmark::after {
-  transform: translateX(18px) scale(1.1);
 }
 
 .button-group {
@@ -199,6 +186,13 @@ input[type="text"] {
   .button:hover .tooltip-text { opacity: 1; visibility: visible; }
 }
 
+@media (hover: none) {
+  .tooltip-text {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
 @media (max-width: 768px) {
   body { padding: 15px; }
   .navbar { gap: 0.8rem; padding: 1rem; margin: -0.5rem -0.5rem 1.5rem; }
@@ -206,18 +200,43 @@ input[type="text"] {
     padding: 0.75rem 1.2rem;
     font-size: 0.95rem;
     flex: 1 1 auto;
-    text-align:center;
+    text-align: center;
   }
-input, button {width: 100%; font-size:16px;}
-.button {font-size:24px; padding:20px 28px; min-width:120px;}
+  input, button { width: 100%; font-size: 16px; }
+  .button { font-size: 24px; padding: 20px 28px; min-width: 120px; }
 }
-@media (max-width:480px){
-  .navbar {flex-direction:column; gap:0.5rem; border-radius:8px;}
-  .nav-item {width:100%; justify-content:center;}
-  .checkbox.style-e {padding-left: 45px;}
-  .checkbox.style-e .checkbox__checkmark {width: 36px; height: 20px; }
-  .checkbox.style-e .checkbox__checkmark::after {width: 14px; height: 14px;}
-  .checkbox.style-e input:checked ~ .checkbox__checkmark::after {transform: translateX(16px);}
+@media (max-width:480px) {
+  .navbar { flex-direction: column; gap: 0.5rem; border-radius: 8px; }
+  .nav-item { width: 100%; justify-content: center; }
+  .checkbox.style-e { padding-left: 45px; }
+  .checkbox.style-e .checkbox__checkmark { width: 36px; height: 20px; }
+  .checkbox.style-e .checkbox__checkmark::after { width: 14px; height: 14px; }
+  .checkbox.style-e input:checked ~ .checkbox__checkmark::after { transform: translateX(16px); }
+}
+
+.icon-moon {
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  will-change: transform;
+}
+.icon-moon:active {
+  animation: spin 0.3s ease;
+}
+@keyframes spin {
+  0% { transform: rotate(0); }
+  10% { transform: rotate(8deg); }
+  20% { transform: rotate(16deg); }
+  30% { transform: rotate(22deg); }
+  40% { transform: rotate(28deg); }
+  50% { transform: rotate(30deg); }
+  60% { transform: rotate(20deg); }
+  70% { transform: rotate(10deg); }
+  80% { transform: rotate(-5deg); }
+  90% { transform: rotate(-10deg); }
+  100% { transform: rotate(0); }
 }
 
 @font-face {
@@ -238,43 +257,6 @@ input, button {width: 100%; font-size:16px;}
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-moon {
-  cursor: pointer;
-  background: none;
-  border: none;
-  padding: 0;
-  color: inherit;
-  transition: transform 0.2s ease;
-}
-.icon-moon:active {
-  animation: spin 0.3s ease;
-}
-@keyframes spin {
-  0% { transform: rotate(0); }
-  5% { transform: rotate(4deg); }
-  10% { transform: rotate(8deg); }
-  15% { transform: rotate(12deg); }
-  20% { transform: rotate(16deg); }
-  25% { transform: rotate(19deg); }
-  30% { transform: rotate(22deg); }
-  35% { transform: rotate(25deg); }
-  40% { transform: rotate(28deg); }
-  45% { transform: rotate(29deg); }
-  50% { transform: rotate(30deg); }
-  55% { transform: rotate(27deg); }
-  60% { transform: rotate(20deg); }
-  65% { transform: rotate(15deg); }
-  70% { transform: rotate(10deg); }
-  75% { transform: rotate(5deg); }
-  80% { transform: rotate(-5deg); }
-  85% { transform: rotate(-8deg); }
-  90% { transform: rotate(-10deg); }
-  95% { transform: rotate(-5deg); }
-  100% { transform: rotate(0); }
-}
-
-
-
-.icon-clipboard::before { content: '\e801';}
-.icon-moon::before { content: '\f186';}
-.icon-loading::before { content: '\e800';}
+.icon-clipboard::before { content: '\e801'; }
+.icon-moon::before { content: '\f186'; }
+.icon-loading::before { content: '\e800'; }
