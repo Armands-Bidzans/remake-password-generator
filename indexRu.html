@@ -1,82 +1,144 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Мгновенно генерируйте надежные и безопасные пароли. Настраивайте длину, специальные символы и числа. Функция копирования в один клик.">
-<meta name="keywords" content="генератор паролей, безопасный пароль, онлайн создатель паролей">
-<link rel="stylesheet" href="styles.css" async>
-<title>Генератор безопасных паролей</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Генерируйте надежные и безопасные пароли мгновенно. Настройте длину, специальные символы и числа. Функция копирования одним кликом.">
+  <meta name="keywords" content="генератор паролей, безопасный пароль, онлайн генератор паролей">
+  <link rel="stylesheet" href="styles.css" async>
+  <title>Генератор безопасных паролей</title>
 </head>
-
 <body>
-  <nav class="navbar" aria-label="Главная навигация">
-    <a class="nav-item" href="aboutpass.html" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click()">
+  <nav class="navbar" aria-label="Основная навигация" style="margin-bottom: 1rem;">
+    <a class="nav-item" href="aboutpass RU.html" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click()">
       <span>О паролях</span>
     </a>
-    <a class="nav-item" href="timer.html" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click()">
+    <a class="nav-item" href="timer RU.html" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click()">
       <span>Таймер</span>
     </a>
     <div class="nav-item">
       <a href="indexRu.html" aria-label="Русская версия" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click()">
-      <img src="russian.svg" width="50" height="30" alt="Российский флаг" loading="lazy">
+        <img src="russian.svg" width="50" height="30" alt="Флаг России" loading="lazy">
       </a>
       <a href="index.html" aria-label="Английская версия" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click()">
-        <img src="american.svg" width="50" height="30" alt="Американский флаг" loading="lazy">
+        <img src="american.svg" width="50" height="30" alt="Флаг США" loading="lazy">
       </a>
       <a href="indexLV.html" aria-label="Латвийская версия" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click()">
-        <img src="latvian.svg" width="50" height="30" alt="Латвийский флаг" loading="lazy">
+        <img src="latvian.svg" width="50" height="30" alt="Флаг Латвии" loading="lazy">
       </a>
     </div>
-</nav>
+  </nav>
 
-<div class="container" role="main">
-  <h2>Генерируйте надежные и безопасные пароли для защиты вашей учетной записи.</h2>
-  <p>Сколько символов должно быть в вашем пароле?</p>
+  <div class="container" role="main" style="margin-top: 0; padding-top: 0;">
+    <h1 style="text-align: center; margin: 1rem 0 2rem; font-size: 2rem;">
+      <i class="icon-lock"></i>
+      Сгенерируйте надежные и безопасные пароли для защиты вашей учетной записи. <i class="icon-lock"></i>
+    </h1>
 
-  <button class="icon-moon" onclick="toggleDarkMode()" tabindex="0" 
-    onkeydown="if(event.key === 'Enter' || event.key === ' ') toggleDarkMode()"
-    aria-label="Переключить темный режим"></button>
+    <p style="text-align: center;">Сколько символов должно быть в вашем пароле?</p>
 
-<form role="form">
-  <label for="length" class="visually-hidden">Длина пароля</label>
-  <input type="text" id="length" name="length" 
-  placeholder="Введите длину пароля (6-∞ символов)" tabindex="0" 
-  aria-label="Введите длину пароля">
-</form>
+    <!-- Исправленная кнопка переключения темы -->
+    <button class="icon-moon"
+            tabindex="0"
+            onclick="toggleDarkMode()"
+            onkeyup="handleThemeKeyUp(event)"
+            aria-label="Переключить темный режим">
+    </button>
 
-<div class="checkbox-group">
-<label class="checkbox style-e">
-  <input type="checkbox" id="special" checked tabindex="0" 
-  onkeyup="if(event.key === 'Enter' || event.key === ' ') this.click()">
-  <span>Использовать специальные символы</span>
-<div class="checkbox__checkmark"></div>
-</label>
+    <form role="form">
+      <label for="length" class="visually-hidden">Длина пароля</label>
+      <input type="text"
+             id="length"
+             name="length"
+             placeholder="Введите длину пароля (6-∞ символов)"
+             tabindex="0"
+             aria-label="Введите длину пароля">
+    </form>
 
-<label class="checkbox style-e">
-  <input type="checkbox" id="number" checked tabindex="0" onkeyup="if(event.key === 'Enter' || event.key === ' ') this.click()">
-  <span>Использовать числа</span>
-<div class="checkbox__checkmark"></div>
-</label>
-</div>
+    <div class="checkbox-group">
+      <label class="checkbox style-e">
+        <input type="checkbox"
+               id="special"
+               checked
+               tabindex="0"
+               onkeyup="if(event.key === 'Enter' || event.key === ' ') this.click()">
+        <span>Использовать специальные символы</span>
+        <div class="checkbox__checkmark"></div>
+      </label>
 
-<label for="password" class="visually-hidden">Сгенерированный пароль</label>
-<input type="text" id="password" name="password" readonly tabindex="0" aria-label="Сгенерированный пароль">
+      <label class="checkbox style-e">
+        <input type="checkbox"
+               id="number"
+               checked
+               tabindex="0"
+               onkeyup="if(event.key === 'Enter' || event.key === ' ') this.click()">
+        <span>Использовать числа</span>
+        <div class="checkbox__checkmark"></div>
+      </label>
+    </div>
 
-<div class="button-group">
-  <div class="button" role="button" tabindex="0" onclick="generatePassword()" 
-    onkeydown="if(event.key === 'Enter' || event.key === ' ') generatePassword()"
-    aria-label="Сгенерировать пароль">
-    <i class="icon-loading"></i>
-    <span class="tooltip-text">Сгенерировать пароль</span>
-</div>
-  <div class="button" role="button" tabindex="0" onclick="copyPassword()" 
-    onkeydown="if(event.key === 'Enter' || event.key === ' ') copyPassword()"
-    aria-label="Скопировать пароль">
-    <i class="icon-clipboard"></i>
-    <span class="tooltip-text">Скопировать пароль</span>
+    <label for="password" class="visually-hidden">Сгенерированный пароль</label>
+    <input type="text"
+           id="password"
+           name="password"
+           readonly
+           tabindex="0"
+           aria-label="Сгенерированный пароль">
+
+    <div class="button-group">
+      <div class="button"
+           role="button"
+           tabindex="0"
+           onclick="generatePassword()"
+           onkeydown="if(event.key === 'Enter' || event.key === ' ') generatePassword()"
+           aria-label="Сгенерировать пароль">
+        <i class="icon-arrows-cw"></i>
+        <span class="tooltip-text">Сгенерировать пароль</span>
+      </div>
+
+      <div class="button"
+           role="button"
+           tabindex="0"
+           onclick="copyPassword()"
+           onkeydown="if(event.key === 'Enter' || event.key === ' ') copyPassword()"
+           aria-label="Копировать пароль">
+        <i class="icon-clipboard"></i>
+        <span class="tooltip-text">Копировать пароль</span>
+      </div>
+    </div>
   </div>
-</div>
-<script src="script.js" async></script>
+
+  <!-- Добавляем новую функцию для обработки клавиш -->
+  <script>
+    let isThemeKeyPressed = false;
+    let lastProcessedKey = null;
+
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+    }
+
+    function handleThemeKeyDown(event) {
+      if (event.key === 'Enter' || event.key === ' ') {
+        if (event.repeat || event.key === lastProcessedKey) return;
+        lastProcessedKey = event.key;
+        isThemeKeyPressed = true;
+        event.target.classList.add('active');
+        event.preventDefault();
+      }
+    }
+
+    function handleThemeKeyUp(event) {
+      if ((event.key === 'Enter' || event.key === ' ') && isThemeKeyPressed) {
+        if (event.key !== lastProcessedKey) return;
+        toggleDarkMode();
+        isThemeKeyPressed = false;
+        lastProcessedKey = null;
+        event.target.classList.remove('active');
+        event.preventDefault();
+      }
+    }
+    // Остальной код из script.js остается без изменений
+  </script>
+  <script src="script.js" async></script>
 </body>
 </html>
