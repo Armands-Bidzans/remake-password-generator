@@ -39,7 +39,6 @@ body {
   transition: background .3s ease, color .3s ease;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* --- ИЗМЕНЕНО: Увеличена длительность анимации для плавности --- */
   animation: page-reveal 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
@@ -194,14 +193,14 @@ input[type="text"] {
 }
 
 @keyframes btn {
-  0% { transform: scale(1) rotate(0); }
-  15% { transform: scale(1.1) rotate(-2deg); }
-  30% { transform: scale(1.15) rotate(2deg); }
-  45% { transform: scale(1.2) rotate(-1.5deg); }
-  60% { transform: scale(1.2) rotate(1.5deg); }
-  75% { transform: scale(1.2) rotate(-1deg); }
-  90% { transform: scale(1.2) rotate(.5deg); }
-  100% { transform: scale(1.2) rotate(0); }
+  0%{transform: scale(1) rotate(0); }
+  15%{transform: scale(1.1) rotate(-2deg);}
+  30%{transform: scale(1.15) rotate(2deg);}
+  45%{transform: scale(1.2) rotate(-1.5deg);}
+  60%{transform: scale(1.2) rotate(1.5deg);}
+  75%{transform: scale(1.2) rotate(-1deg);}
+  90%{transform: scale(1.2) rotate(.5deg);}
+  100%{transform: scale(1.2) rotate(0);}
 }
 
 .button:active {
@@ -253,15 +252,15 @@ input[type="text"] {
   will-change: transform;
 }
 
-.icon-moon:active { animation: spin .3s ease; }
+.icon-moon:active {animation: spin .3s ease;}
 
 @keyframes spin {
   0% { transform: rotate(0); }
-  10% { transform: rotate(8deg); } 20% { transform: rotate(16deg); }
-  30% { transform: rotate(22deg); } 40% { transform: rotate(28deg); }
-  50% { transform: rotate(30deg); } 60% { transform: rotate(20deg); }
-  70% { transform: rotate(10deg); } 80% { transform: rotate(-5deg); }
-  90% { transform: rotate(-10deg); } 100% { transform: rotate(0); }
+  10% { transform: rotate(8deg);} 20% {transform: rotate(16deg);}
+  30% { transform: rotate(22deg);} 40% {transform: rotate(28deg);}
+  50% { transform: rotate(30deg);} 60% {transform: rotate(20deg);}
+  70% { transform: rotate(10deg);} 80% {transform: rotate(-5deg);}
+  90% { transform: rotate(-10deg);} 100% {transform: rotate(0);}
 }
 
 @font-face {
@@ -284,10 +283,10 @@ input[type="text"] {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-lock:before { content: '\e800'; font-size: 1.5em; }
-.icon-clipboard:before { content: '\e801'; font-size: 1.5em; }
-.icon-arrows-cw:before { content: '\e802'; font-size: 1.5em; }
-.icon-moon:before { content: '\f186'; font-size: 1.5em; }
+.icon-lock:before{content: '\e800'; font-size: 1.5em;}
+.icon-clipboard:before{ content: '\e801'; font-size: 1.5em;}
+.icon-arrows-cw:before{ content: '\e802'; font-size: 1.5em;}
+.icon-moon:before{content: '\f186'; font-size: 1.5em;}
 
 /* --- ДОБАВЛЕНО: Анимация для плавного появления страницы сверху вниз --- */
 @keyframes page-reveal {

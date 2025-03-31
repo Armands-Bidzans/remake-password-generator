@@ -86,7 +86,7 @@ body {
   width: 150px;
   display: block;
 }
-
+/* --- Buttons "pause, resume and reset" --- */
 .button-group {
   display: flex;
   gap: 1rem;
