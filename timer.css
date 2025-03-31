@@ -1,12 +1,15 @@
 :root {
   --bg: #faf9f6;
   --txt: #0e0c0a;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.15);
   --p: #6366f1;
-  --nav-bg: rgba(99,102,241,.08);
-  --shadow: 0 2px 12px #0001;
+  --p-light: color-mix(in srgb, var(--p) 15%, transparent);
+  --p-border: color-mix(in srgb, var(--p) 25%, transparent);
+  --btn-txt: #ffffff;
+  --shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   --radius-lg: 12px;
   --radius-sm: 8px;
-  --transition: transform .2s ease, opacity .2s ease;
+  --transition: transform .2s ease, opacity .2s ease, background-color .2s ease, border-color .2s ease;
 }
 
 body {
@@ -42,8 +45,8 @@ body {
   border-radius: var(--radius-sm);
   text-decoration: none;
   color: var(--txt);
-  background: var(--nav-bg);
-  transition: transform .25s ease, background .25s ease, border-color .25s ease;
+  background: var(--p-light);
+  transition: transform .25s ease, background .25s ease, border-color .25s ease, box-shadow .25s ease;
   font-weight: 500;
   text-align: center;
   border: 2px solid transparent;
@@ -54,14 +57,17 @@ body {
 }
 
 .nav-item:where(:hover, :focus-visible) {
-  background: color-mix(in srgb, var(--p) 15%, transparent);
-  border-color: color-mix(in srgb, var(--p) 25%, transparent);
-  transform: translateY(-1px);
+  background: color-mix(in srgb, var(--p) 20%, transparent);
+  border-color: var(--p-border);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.3);
 }
 
 .nav-item:active {
   transform: translateY(0);
   transition-duration: .1s;
+  box-shadow: none;
+  background: color-mix(in srgb, var(--p) 25%, transparent);
 }
 
 .timer-container {
@@ -95,20 +101,22 @@ body {
   background: var(--p);
   color: #fff;
   cursor: pointer;
-  transition: var(--transition);
+  transition: transform .2s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity .2s ease, box-shadow .2s ease;
   min-width: 100px;
 }
 
 .hidden { display: none; }
 
 .btn:where(:hover, :focus-visible) {
-  transform: translateY(-1px);
-  opacity: .9;
+  transform: translateY(-3px) scale(1.03);
+  opacity: .95;
+  box-shadow: 0 6px 18px rgba(99, 102, 241, 0.4);
 }
 
 .btn:active {
-  transform: translateY(0);
-  transition-duration: .1s;
+  transform: translateY(0) scale(0.98);
+  transition-duration: .08s;
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
 }
 
 @media (max-width: 768px) {

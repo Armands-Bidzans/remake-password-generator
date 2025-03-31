@@ -1,11 +1,15 @@
 :root {
   --bg: #faf9f6;
   --txt: #0e0c0a;
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.15);
   --p: #6366f1;
-  --nav-bg: #6366f114; /* rgba(99,102,241,0.08) -> hex+alpha */
-  --shadow: 0 2px 12px #0001; /* rgba(0,0,0,0.1) -> hex+alpha */
+  --p-light: color-mix(in srgb, var(--p) 15%, transparent);
+  --p-border: color-mix(in srgb, var(--p) 25%, transparent);
+  --btn-txt: #ffffff;
+  --shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   --radius-lg: 12px;
   --radius-sm: 8px;
+  --transition: transform .2s ease, opacity .2s ease, background-color .2s ease, border-color .2s ease;
 }
 
 body {
@@ -29,47 +33,49 @@ body {
   justify-content: center;
   position: relative;
   z-index: 1;
-  transition: box-shadow .3s ease, background .3s ease; /* 0.3s -> .3s */
+  transition: box-shadow .3s ease, background .3s ease;
 }
 
 .nav-item {
-  padding: .75rem 1.5rem; /* 0.75rem -> .75rem */
+  padding: .75rem 1.5rem;
   border-radius: var(--radius-sm);
   text-decoration: none;
   color: var(--txt);
-  background: var(--nav-bg);
-  transition: transform .25s ease, background .25s ease, border-color .25s ease; /* 0.25s -> .25s */
+  background: var(--p-light);
+  transition: transform .25s ease, background .25s ease, border-color .25s ease, box-shadow .25s ease;
   font-weight: 500;
   text-align: center;
   border: 2px solid transparent;
   display: inline-flex;
   align-items: center;
-  gap: .5rem; /* 0.5rem -> .5rem */
+  gap: .5rem;
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Используем rgba вместо color-mix для краткости, сохраняя результат */
-.nav-item:hover {
-  background: rgba(99,102,241,.15); /* color-mix(in srgb, var(--p) 15%, transparent) */
-  border-color: rgba(99,102,241,.25); /* color-mix(in srgb, var(--p) 25%, transparent) */
-  transform: translateY(-1px);
+.nav-item:where(:hover, :focus-visible) {
+  background: #6366f126;
+  border-color: var(--p-border);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.3);
 }
 
 .nav-item:active {
   transform: translateY(0);
-  transition-duration: .1s; /* 0.1s -> .1s */
+  transition-duration: .1s;
+  box-shadow: none;
+  background: #6366f140;
 }
 
 @media (max-width: 768px) {
   .navbar {
-    margin: -.5rem -.5rem 1.5rem; /* 0.5rem -> .5rem */
+    margin: -.5rem -.5rem 1.5rem;
     padding: 1rem;
-    gap: .8rem; /* 0.8rem -> .8rem */
+    gap: .8rem;
   }
 
   .nav-item {
-    padding: .75rem 1.2rem; /* 0.75rem -> .75rem */
-    font-size: .95rem; /* 0.95rem -> .95rem */
+    padding: .75rem 1.2rem;
+    font-size: .95rem;
     flex: 1 1 auto;
   }
 }
@@ -77,7 +83,7 @@ body {
 @media (max-width: 480px) {
   .navbar {
     flex-direction: column;
-    gap: .5rem; /* 0.5rem -> .5rem */
+    gap: .5rem;
     border-radius: var(--radius-sm);
     margin: -1rem -1rem 2rem;
     padding: 1rem;
@@ -100,5 +106,6 @@ body {
   display: block;
   margin: 20px auto;
   max-width: 100%;
-  /* height: auto; - убрано, т.к. это значение по умолчанию при max-width: 100% */
+  filter: drop-shadow(0 4px 24px rgba(0, 0, 0, 0.5));
+  transform: translateZ(0);
 }
