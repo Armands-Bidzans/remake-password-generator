@@ -6,7 +6,7 @@
   --p-light: color-mix(in srgb, var(--primary) 15%, transparent);
   --p-border: color-mix(in srgb, var(--primary) 25%, transparent);
   --shadow: 0 2px 12px #0000001a;
-  --check-bg: #b3b;
+  --check-bg: #b3b3b3;
   --check: #2c6786;
   -webkit-tap-highlight-color: transparent;
 }
@@ -14,7 +14,7 @@
 .dark-mode {
   --bg: #0e0c0a;
   --text: #faf9f6;
-    text-shadow: 2px 2px 3px rgba(232,232,232,0.2);
+    text-shadow: 2px 2px 3px rgba(232,232,232,0.35);
   --p-light: color-mix(in srgb, var(--primary) 12%, transparent);
   --shadow: 0 2px 12px #ffffff0d;
   --check-bg: #666;
@@ -39,6 +39,8 @@ body {
   transition: background .3s ease, color .3s ease;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* --- ИЗМЕНЕНО: Увеличена длительность анимации для плавности --- */
+  animation: page-reveal 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
 .container {
@@ -286,3 +288,15 @@ input[type="text"] {
 .icon-clipboard:before { content: '\e801'; font-size: 1.5em; }
 .icon-arrows-cw:before { content: '\e802'; font-size: 1.5em; }
 .icon-moon:before { content: '\f186'; font-size: 1.5em; }
+
+/* --- ДОБАВЛЕНО: Анимация для плавного появления страницы сверху вниз --- */
+@keyframes page-reveal {
+  0%{opacity:0;transform:translateY(-30px);clip-path:polygon(0 0,100% 0,100% 80%,0 90%);}
+  15%{opacity:0.15;transform:translateY(-25px);}
+  30%{opacity:0.3;transform:translateY(-20px);clip-path:polygon(0 0,100% 0,100% 85%,0 92%);}
+  45%{opacity:0.45;transform:translateY(-15px);}
+  60%{opacity:0.65;transform:translateY(-10px);clip-path:polygon(0 0,100% 0,100% 92%,0 96%);}
+  75%{opacity:0.85;transform:translateY(-5px);}
+  90%{opacity:0.95;transform:translateY(-2px);clip-path:polygon(0 0,100% 0,100% 98%,0 99%);}
+  100%{opacity:1;transform:translateY(0);clip-path:polygon(0 0,100% 0,100% 100%,0 100%);}
+}
