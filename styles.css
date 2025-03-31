@@ -1,7 +1,6 @@
 :root {
   --bg: #faf9f6;
   --text: #0e0c0a;
-    text-shadow: 2px 2px 3px rgba(0,0,0,0.25);
   --primary: #6366f1;
   --p-light: color-mix(in srgb, var(--primary) 15%, transparent);
   --p-border: color-mix(in srgb, var(--primary) 25%, transparent);
@@ -9,16 +8,17 @@
   --check-bg: #b3b3b3;
   --check: #2c6786;
   -webkit-tap-highlight-color: transparent;
+  text-shadow: 2px 2px 3px rgba(0,0,0,0.25); /* ВОССТАНОВЛЕНО */
 }
 
 .dark-mode {
   --bg: #0e0c0a;
   --text: #faf9f6;
-    text-shadow: 2px 2px 3px rgba(232,232,232,0.35);
   --p-light: color-mix(in srgb, var(--primary) 12%, transparent);
   --shadow: 0 2px 12px #ffffff0d;
   --check-bg: #666;
   --check: #3a8bbb;
+  text-shadow: 2px 2px 3px rgba(232,232,232,0.35); /* ВОССТАНОВЛЕНО */
 }
 
 html {
@@ -71,6 +71,7 @@ input[type="text"] {
   transition: box-shadow .3s ease, background .3s ease;
   position: relative;
   z-index: 1;
+  box-shadow: var(--shadow);
 }
 
 .nav-item {

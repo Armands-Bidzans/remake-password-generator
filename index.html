@@ -8,13 +8,10 @@
   <link rel="stylesheet" href="styles.css" async>
   <title>Secure Password Generator</title>
   <style>
-    /* Basic styling for the active state - you might have this in styles.css already */
     .icon-moon.active {
-        /* Add styles for the pressed state, e.g., slight scale down or brightness change */
         transform: scale(0.95);
         filter: brightness(0.8);
     }
-    /* Ensure smooth transition */
     .icon-moon {
         transition: transform 0.1s ease, filter 0.1s ease;
     }
@@ -49,11 +46,10 @@
 
     <p style="text-align: center;">How many characters should your password be?</p>
 
-    <!-- Исправленная кнопка переключения темы -->
     <button class="icon-moon"
             tabindex="0"
             onclick="toggleDarkMode()"
-            onkeydown="handleThemeKeyDown(event)" /* Добавлено событие onkeydown */
+            onkeydown="handleThemeKeyDown(event)"
             onkeyup="handleThemeKeyUp(event)"
             aria-label="Toggle dark mode">
     </button>
@@ -124,12 +120,9 @@
   <!-- Добавляем новую функцию для обработки клавиш -->
   <script>
     let isThemeKeyPressed = false;
-    // Удаляем lastProcessedKey, так как isThemeKeyPressed достаточно для предотвращения повторов
-    // let lastProcessedKey = null; // Больше не нужен
 
     function toggleDarkMode() {
       document.body.classList.toggle("dark-mode");
-      // Можно добавить логику для сохранения состояния темы, если нужно
     }
 
     function handleThemeKeyDown(event) {
@@ -137,17 +130,14 @@
       if (event.key === 'Enter' || event.key === ' ') {
         // Предотвращаем стандартное действие браузера (прокрутка для Space, отправка формы для Enter в некоторых случаях)
         event.preventDefault();
-        // Если клавиша еще не была 'нажата' в этой последовательности
         if (!isThemeKeyPressed) {
           isThemeKeyPressed = true;
-          event.target.classList.add('active'); // Добавляем класс для анимации нажатия
+          event.target.classList.add('active');
         }
-        // Не делаем ничего, если клавиша уже удерживается (предотвращение повторного добавления класса)
       }
     }
 
     function handleThemeKeyUp(event) {
-      // Обрабатываем только Enter и Space и только если клавиша была 'нажата'
       if ((event.key === 'Enter' || event.key === ' ') && isThemeKeyPressed) {
          // Предотвращаем стандартное действие браузера (на всякий случай, хотя в keydown уже есть)
         event.preventDefault();
@@ -158,12 +148,6 @@
       // Если отпущена другая клавиша или эта клавиша не была 'нажата' (например, фокус пришел на кнопку при уже зажатой клавише), ничего не делаем
     }
 
-    // Остальной код из script.js остается без изменений (если он у вас в отдельном файле)
-    // Если код script.js был здесь же, он должен остаться ниже этих функций.
-    // Пример:
-    // function generatePassword() { ... }
-    // function copyPassword() { ... }
-    // и т.д.
 
   </script>
   <script src="script.js" async></script> <!-- Убедитесь, что этот файл не содержит конфликтующих обработчиков для .icon-moon -->

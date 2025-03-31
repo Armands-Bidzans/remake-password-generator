@@ -3,15 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Ģenerējiet spēcīgas, drošas paroles uzreiz. Pielāgojiet garumu, speciālos simbolus un ciparus. Viena klikšķa kopēšanas funkcija.">
+  <meta name="description" content="Nekavējoties ģenerējiet spēcīgas un drošas paroles. Pielāgojiet garumu, speciālos simbolus un ciparus. Viena klikšķa kopēšanas funkcija.">
   <meta name="keywords" content="paroles ģenerators, droša parole, tiešsaistes paroles veidotājs">
   <link rel="stylesheet" href="styles.css" async>
-  <title>Drošas Paroles Ģenerators</title>
+  <title>Drošu Paroļu Ģenerators</title>
+  <style>
+    .icon-moon.active {
+        transform: scale(0.95);
+        filter: brightness(0.8);
+    }
+    .icon-moon {
+        transition: transform 0.1s ease, filter 0.1s ease;
+    }
+  </style>
 </head>
 <body>
   <nav class="navbar" aria-label="Galvenā navigācija" style="margin-bottom: 1rem;">
     <a class="nav-item" href="aboutpass LV.html" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click()">
-      <span>Par paroli</span>
+      <span>Paroles</span>
     </a>
     <a class="nav-item" href="timer LV.html" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click()">
       <span>Taimeris</span>
@@ -21,7 +30,7 @@
         <img src="russian.svg" width="50" height="30" alt="Krievijas karogs" loading="lazy">
       </a>
       <a href="index.html" aria-label="Angļu versija" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click()">
-        <img src="american.svg" width="50" height="30" alt="ASV karogs" loading="lazy">
+        <img src="american.svg" width="50" height="30" alt="Amerikas karogs" loading="lazy">
       </a>
       <a href="indexLV.html" aria-label="Latviešu versija" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click()">
         <img src="latvian.svg" width="50" height="30" alt="Latvijas karogs" loading="lazy">
@@ -32,15 +41,15 @@
   <div class="container" role="main" style="margin-top: 0; padding-top: 0;">
     <h1 style="text-align: center; margin: 1rem 0 2rem; font-size: 2rem;">
       <i class="icon-lock"></i>
-      Ģenerējiet spēcīgas, drošas paroles, lai aizsargātu savu kontu. <i class="icon-lock"></i>
+      Ģenerējiet spēcīgas un drošas paroles, lai aizsargātu savu kontu. <i class="icon-lock"></i>
     </h1>
 
-    <p style="text-align: center;">Cik daudz rakstzīmju jābūt jūsu parolei?</p>
+    <p style="text-align: center;">Cik garam jābūt jūsu parolei?</p>
 
-    <!-- Исправленная кнопка переключения темы -->
     <button class="icon-moon"
             tabindex="0"
             onclick="toggleDarkMode()"
+            onkeydown="handleThemeKeyDown(event)"
             onkeyup="handleThemeKeyUp(event)"
             aria-label="Pārslēgt tumšo režīmu">
     </button>
@@ -50,7 +59,7 @@
       <input type="text"
              id="length"
              name="length"
-             placeholder="Ievadiet paroles garumu (6-∞ rakstzīmes)"
+             placeholder="Ievadiet paroles garumu (6-∞ simboli)"
              tabindex="0"
              aria-label="Ievadiet paroles garumu">
     </form>
@@ -108,36 +117,36 @@
     </div>
   </div>
 
-  <!-- Добавляем новую функцию для обработки клавиш -->
   <script>
     let isThemeKeyPressed = false;
-    let lastProcessedKey = null;
 
     function toggleDarkMode() {
       document.body.classList.toggle("dark-mode");
     }
 
     function handleThemeKeyDown(event) {
+      // Обрабатываем только Enter и Space
       if (event.key === 'Enter' || event.key === ' ') {
-        if (event.repeat || event.key === lastProcessedKey) return;
-        lastProcessedKey = event.key;
-        isThemeKeyPressed = true;
-        event.target.classList.add('active');
+        // Предотвращаем стандартное действие браузера (прокрутка для Space, отправка формы для Enter в некоторых случаях)
         event.preventDefault();
+        if (!isThemeKeyPressed) {
+          isThemeKeyPressed = true;
+          event.target.classList.add('active');
+        }
       }
     }
 
     function handleThemeKeyUp(event) {
       if ((event.key === 'Enter' || event.key === ' ') && isThemeKeyPressed) {
-        if (event.key !== lastProcessedKey) return;
-        toggleDarkMode();
-        isThemeKeyPressed = false;
-        lastProcessedKey = null;
-        event.target.classList.remove('active');
+         // Предотвращаем стандартное действие браузера (на всякий случай, хотя в keydown уже есть)
         event.preventDefault();
+        toggleDarkMode(); // Выполняем действие при отпускании
+        isThemeKeyPressed = false;
+        event.target.classList.remove('active');
       }
     }
-    // Остальной код из script.js остается без изменений
+
+
   </script>
   <script src="script.js" async></script>
 </body>

@@ -3,28 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Генерируйте надежные и безопасные пароли мгновенно. Настройте длину, специальные символы и числа. Функция копирования одним кликом.">
+  <meta name="description" content="Мгновенно генерируйте надежные и безопасные пароли. Настройте длину, специальные символы и цифры. Функция копирования в один клик.">
   <meta name="keywords" content="генератор паролей, безопасный пароль, онлайн генератор паролей">
   <link rel="stylesheet" href="styles.css" async>
-  <title>Генератор безопасных паролей</title>
+  <title>Генератор Безопасных Паролей</title>
+  <style>
+    .icon-moon.active {
+        transform: scale(0.95);
+        filter: brightness(0.8);
+    }
+    .icon-moon {
+        transition: transform 0.1s ease, filter 0.1s ease;
+    }
+  </style>
 </head>
 <body>
   <nav class="navbar" aria-label="Основная навигация" style="margin-bottom: 1rem;">
     <a class="nav-item" href="aboutpass RU.html" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click()">
-      <span>О паролях</span>
+      <span>О Паролях</span>
     </a>
     <a class="nav-item" href="timer RU.html" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click()">
       <span>Таймер</span>
     </a>
     <div class="nav-item">
       <a href="indexRu.html" aria-label="Русская версия" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click()">
-        <img src="russian.svg" width="50" height="30" alt="Флаг России" loading="lazy">
+        <img src="russian.svg" width="50" height="30" alt="Российский флаг" loading="lazy">
       </a>
       <a href="index.html" aria-label="Английская версия" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click()">
-        <img src="american.svg" width="50" height="30" alt="Флаг США" loading="lazy">
+        <img src="american.svg" width="50" height="30" alt="Американский флаг" loading="lazy">
       </a>
       <a href="indexLV.html" aria-label="Латвийская версия" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') this.click()">
-        <img src="latvian.svg" width="50" height="30" alt="Флаг Латвии" loading="lazy">
+        <img src="latvian.svg" width="50" height="30" alt="Латвийский флаг" loading="lazy">
       </a>
     </div>
   </nav>
@@ -35,12 +44,12 @@
       Сгенерируйте надежные и безопасные пароли для защиты вашей учетной записи. <i class="icon-lock"></i>
     </h1>
 
-    <p style="text-align: center;">Сколько символов должно быть в вашем пароле?</p>
+    <p style="text-align: center;">Какой длины должен быть ваш пароль?</p>
 
-    <!-- Исправленная кнопка переключения темы -->
     <button class="icon-moon"
             tabindex="0"
             onclick="toggleDarkMode()"
+            onkeydown="handleThemeKeyDown(event)"
             onkeyup="handleThemeKeyUp(event)"
             aria-label="Переключить темный режим">
     </button>
@@ -72,7 +81,7 @@
                checked
                tabindex="0"
                onkeyup="if(event.key === 'Enter' || event.key === ' ') this.click()">
-        <span>Использовать числа</span>
+        <span>Использовать цифры</span>
         <div class="checkbox__checkmark"></div>
       </label>
     </div>
@@ -101,43 +110,43 @@
            tabindex="0"
            onclick="copyPassword()"
            onkeydown="if(event.key === 'Enter' || event.key === ' ') copyPassword()"
-           aria-label="Копировать пароль">
+           aria-label="Скопировать пароль">
         <i class="icon-clipboard"></i>
-        <span class="tooltip-text">Копировать пароль</span>
+        <span class="tooltip-text">Скопировать пароль</span>
       </div>
     </div>
   </div>
 
-  <!-- Добавляем новую функцию для обработки клавиш -->
   <script>
     let isThemeKeyPressed = false;
-    let lastProcessedKey = null;
 
     function toggleDarkMode() {
       document.body.classList.toggle("dark-mode");
     }
 
     function handleThemeKeyDown(event) {
+      // Обрабатываем только Enter и Space
       if (event.key === 'Enter' || event.key === ' ') {
-        if (event.repeat || event.key === lastProcessedKey) return;
-        lastProcessedKey = event.key;
-        isThemeKeyPressed = true;
-        event.target.classList.add('active');
+        // Предотвращаем стандартное действие браузера (прокрутка для Space, отправка формы для Enter в некоторых случаях)
         event.preventDefault();
+        if (!isThemeKeyPressed) {
+          isThemeKeyPressed = true;
+          event.target.classList.add('active');
+        }
       }
     }
 
     function handleThemeKeyUp(event) {
       if ((event.key === 'Enter' || event.key === ' ') && isThemeKeyPressed) {
-        if (event.key !== lastProcessedKey) return;
-        toggleDarkMode();
-        isThemeKeyPressed = false;
-        lastProcessedKey = null;
-        event.target.classList.remove('active');
+         // Предотвращаем стандартное действие браузера (на всякий случай, хотя в keydown уже есть)
         event.preventDefault();
+        toggleDarkMode(); // Выполняем действие при отпускании
+        isThemeKeyPressed = false;
+        event.target.classList.remove('active');
       }
     }
-    // Остальной код из script.js остается без изменений
+
+
   </script>
   <script src="script.js" async></script>
 </body>
